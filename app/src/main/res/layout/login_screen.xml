@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="Enter password"
-        android:inputType="numberPassword"
+        android:inputType="textPassword"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -34,10 +34,10 @@
         app:layout_constraintVertical_bias="0.222" />
 
     <TextView
+        android:id="@+id/forgot_pass_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="forgot Password"
-        android:id="@+id/forgot_pass_text"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pass_text" />
 

@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -23,6 +24,8 @@ public class LoginActivity extends AppCompatActivity {
     Button submitBtn;
     @BindView(R.id.sign_up_btn)
     Button signUpBtn;
+    @BindView(R.id.forgot_pass_text)
+    TextView forgotPassBtn;
 
 
 
@@ -43,9 +46,40 @@ public class LoginActivity extends AppCompatActivity {
             signUpBtn.setVisibility(View.VISIBLE);
 
         }
+        submitBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onViewClicked(view);
+            }
+        });
+        signUpBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onViewClicked(view);
+            }
+        });
+        forgotPassBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onViewClicked(view);
+            }
+        });
+
     }
 
-    @OnClick({R.id.submit_btn, R.id.sign_up_btn, R.id.forgot_pass_text})
+//    @OnClick({R.id.submit_btn})
+//    public void onSubmitBtnClicked(View view){
+//        onViewClicked(view);
+//    }
+//    @OnClick({R.id.sign_up_btn})
+//    public void onSignUpBtnClicked(View view){
+//        onViewClicked(view);
+//    } @OnClick({R.id.forgot_pass_text})
+//    public void onForgotPassClicked(View view){
+//        onViewClicked(view);
+//    }
+
+
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.submit_btn:
@@ -53,6 +87,8 @@ public class LoginActivity extends AppCompatActivity {
                if(isValid){
                    matchInputWithdb();
                    // move to otp screen
+                   startActivity(new Intent(this, VotingActivity.class));
+
                }
 
                 break;
@@ -96,8 +132,5 @@ public class LoginActivity extends AppCompatActivity {
         return true;
 
     }
-    private void showDialogProgress(){
 
-
-    }
 }

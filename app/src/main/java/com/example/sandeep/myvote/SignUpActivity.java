@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 
 import butterknife.BindView;
@@ -24,6 +26,8 @@ public class SignUpActivity extends AppCompatActivity {
     EditText passEt;
     @BindView(R.id.conf_pass_et)
     EditText confPassEt;
+    @BindView(R.id.register_button)
+    Button registerButton;
 
 
     @Override
@@ -31,16 +35,18 @@ public class SignUpActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
         ButterKnife.bind(this);
-    }
 
-    @OnClick(R.id.register_button)
-    public void onViewClicked() {
-        boolean isValid = validateInputs();
-        if (isValid) {
-            Intent in = new Intent(this, LoginActivity.class);
-            in.putExtra("selected_value", "admin");
-            startActivity(in);
-        }
+        registerButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                boolean isValid = validateInputs();
+                if (isValid) {
+                    Intent in = new Intent(SignUpActivity.this, LoginActivity.class);
+                    in.putExtra("selected_value", "admin");
+                    startActivity(in);
+                }
+            }
+        });
     }
 
     private boolean validateInputs() {

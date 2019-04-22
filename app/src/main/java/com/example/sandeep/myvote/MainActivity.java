@@ -26,10 +26,10 @@ public class MainActivity extends AppCompatActivity {
 
     public void onSubmitClick(View view) {
         Intent in = new Intent(this, LoginActivity.class);
-        if (adminRadioBtn.isSelected()) {
+        if (adminRadioBtn.isChecked()) {
              in.putExtra("selected_value", "admin");
             startActivity(in);
-        } else if (userRadioBtn.isSelected()) {
+        } else if (userRadioBtn.isChecked()) {
             in.putExtra("selected_value", "user");
             startActivity(in);
         } else {
